@@ -2,24 +2,18 @@ import React, {Component} from 'react';
 import {Image, Platform} from 'react-native';
 import { Text, Container, Content, View, Left, Right, Body, Header, Button } from 'native-base';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import { FontAwesome } from '@expo/vector-icons';
 
-class HomeScreen extends Component {
+class CatalogueScreen extends Component {
     static navigationOptions = {
-        title: 'Home',
-        drawerLabel: 'Home',
+        title: 'Catalogue',
+        drawerLabel: 'Catalogue',
         drawerIcon: ({ tintColor }) => (
-          <MaterialIcons
-            name="home"
+          <FontAwesome
+            name="tag"
             size={26}
             style={{ color: tintColor }}
           />
-        ),
-        tabBarIcon: ({tintColor}) => (
-            <MaterialIcons
-              name="home"
-              size={26}
-              style={{color:tintColor}}
-              />
         )
       };
       render() {
@@ -35,7 +29,7 @@ class HomeScreen extends Component {
                           </Button>
                       </Left>
                       <Body>
-                          <Text>Home</Text>
+                          <Text>Catalogue</Text>
                       </Body>
                       <Right/>
                   </Header>
@@ -49,4 +43,4 @@ class HomeScreen extends Component {
       }
 }
 
-export default HomeScreen;
+export default CatalogueScreen;

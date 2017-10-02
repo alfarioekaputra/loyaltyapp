@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Image, ActivityIndicator, FlatList, Dimensions} from 'react-native';
+import {Image, ActivityIndicator, FlatList, Dimensions, Platform} from 'react-native';
 import { Text, Container, Content, View, Left, Right, Body, Header, Button, Card, CardItem, Thumbnail} from 'native-base';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import moment from 'moment';
@@ -46,7 +46,7 @@ class NewsEventScreen extends Component {
     render() {
           const {navigation} = this.props;
           return (
-              <Container>
+              <Container style={{paddingTop: Platform.OS === 'ios' ? 0 : Expo.Constants.statusBarHeight}}>
                   <Header>
                       <Left>
                           <Button

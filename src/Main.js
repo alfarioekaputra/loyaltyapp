@@ -8,6 +8,8 @@ import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import HomeScreen from './components/Home';
 import NewsEventScreen from './components/NewsEvent';
 import PromotionScreen from './components/Promotion';
+import SettingsScreen from './components/Settings';
+import CatalogueScreen from './components/Catalogue';
 
 const MyNavScreen = ({ navigation, banner, header }) => (
     <Container>
@@ -52,23 +54,6 @@ InboxScreen.navigationOptions = {
   ),
 };
 
-class SettingsScreen extends React.Component {
-    static navigationOptions = {
-      title: 'Setting',
-      tabBarIcon: ({tintColor}) => (
-          <MaterialIcons
-            name="settings"
-            size={26}
-            style={{color:tintColor}}
-            />
-      )
-    };
-    render() {
-        const {navigation} = this.props;
-        return <MyNavScreen banner={'Settings Screen'} header={'Settings'} navigation={navigation} />
-    }
-}
-
 const DraftsScreen = ({ navigation }) => (
   <MyNavScreen banner={'Drafts Screen'} header={'Draft'} navigation={navigation} />
 );
@@ -92,6 +77,24 @@ const TabsScreen = TabNavigator({
     Settings: {
       screen: SettingsScreen
     }
+  }, {
+    headerMode: 'none',
+    tabBarPosition: 'bottom',
+    shoIcon : true,
+    animationEnabled: true,
+    tabBarOptions: {
+      activeTintColor: 'red',  // Color of tab when pressed
+      inactiveTintColor: '#b5b5b5', // Color of tab when not pressed
+      showIcon: 'true', // Shows an icon for both iOS and Android
+      showLabel: (Platform.OS !== 'android'), //No label for Android
+      labelStyle: {
+        fontSize: 11,
+      },
+      style: {
+        backgroundColor: '#fff', // Makes Android tab bar white instead of standard blue
+        height: (Platform.OS === 'ios') ? 48 : 50 // I didn't use this in my app, so the numbers may be off. 
+      }
+    },
   });
   
   TabsScreen.navigationOptions = {
@@ -105,7 +108,30 @@ const DrawerExample = DrawerNavigator(
       path: '/',
       screen: TabsScreen,
     },
-    Chats: {
+    Catalogue: {
+      screen: CatalogueScreen,
+    },
+    BrandInfo: {
+      path: '/sent',
+      screen: DraftsScreen,
+    },
+    GitfCard: {
+      path: '/sent',
+      screen: DraftsScreen,
+    },
+    MembershipCard: {
+      path: '/sent',
+      screen: DraftsScreen,
+    },
+    BrandInformation: {
+      path: '/sent',
+      screen: DraftsScreen,
+    },
+    Inbox: {
+      path: '/sent',
+      screen: DraftsScreen,
+    },
+    NearestShop: {
       path: '/sent',
       screen: DraftsScreen,
     },

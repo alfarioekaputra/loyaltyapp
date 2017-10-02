@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Image} from 'react-native';
+import {Image, Platform} from 'react-native';
 import { Text, Container, Content, View, Left, Right, Body, Header, Button, Card, CardItem, Thumbnail } from 'native-base';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
@@ -18,7 +18,7 @@ class PromotionScreen extends Component {
       render() {
           const {navigation} = this.props;
           return (
-              <Container>
+              <Container style={{paddingTop: Platform.OS === 'ios' ? 0 : Expo.Constants.statusBarHeight}}>
                   <Header>
                       <Left>
                           <Button
@@ -33,27 +33,58 @@ class PromotionScreen extends Component {
                       <Right/>
                   </Header>
                   <Content padder>
-                  <Card style={{marginBottom: 15}}>
-                        <CardItem bordered>
-                            <Left>
-                                <Thumbnail square source={require('../../assets/images/tokopedia.jpg')} />
+                    <Card style={{marginBottom: 15}}>
+                            <CardItem>
+                                <Left style={{marginRight: -100}}>
+                                    <Thumbnail square source={require('../../assets/images/tokopedia.jpg')} />
+                                </Left>
                                 <Body>
+                                    <Text style={{marginBottom: 15}}>Promo bebas ongkir</Text>
+                                    <Button full success rounded small><Text>Get Promo</Text></Button>
                                     
                                 </Body>
-                            </Left>
-                        </CardItem>
-                        <CardItem>
-                            <Body>
-                                
-                            </Body>
-                        </CardItem>
-                        <CardItem style={{ paddingVertical: 0 }}>
-                            <Left>
-                                <MaterialIcons name="account-circle" />
-                                
-                            </Left>
-                        </CardItem>
+                            </CardItem>
+                            <CardItem style={{ paddingVertical: 0 }}>
+                                <Left>
+                                <Text>Date of expiry <Text style={{color: 'red'}}>06-10-2017</Text></Text>   
+                                </Left>
+                            </CardItem>
                     </Card>
+                    <Card style={{marginBottom: 15}}>
+                            <CardItem>
+                                <Left style={{marginRight: -100}}>
+                                    <Thumbnail square source={require('../../assets/images/bukalapak.jpg')} />
+                                </Left>
+                                <Body>
+                                    <Text style={{marginBottom: 15}}>Barang pilihanmu dapat diskon 20%</Text>
+                                    <Button full success rounded small><Text>Get Promo</Text></Button>
+                                    
+                                </Body>
+                            </CardItem>
+                            <CardItem style={{ paddingVertical: 0 }}>
+                                <Left>
+                                <Text>Date of expiry <Text style={{color: 'red'}}>20-10-2017</Text></Text>   
+                                </Left>
+                            </CardItem>
+                    </Card>
+                    <Card style={{marginBottom: 15}}>
+                            <CardItem>
+                                <Left style={{marginRight: -100}}>
+                                    <Thumbnail square source={require('../../assets/images/bliblicom.png')} />
+                                </Left>
+                                <Body>
+                                    <Text style={{marginBottom: 15}}>Promo belanja hari ini dapatkan diskon 40%</Text>
+                                    <Button full success rounded small><Text>Get Promo</Text></Button>
+                                    
+                                </Body>
+                            </CardItem>
+                            <CardItem style={{ paddingVertical: 0 }}>
+                                <Left>
+                                <Text>Date of expiry <Text style={{color: 'red'}}>25-10-2017</Text></Text>   
+                                </Left>
+                            </CardItem>
+                    </Card>
+                        
                   </Content>
               </Container>
           )
